@@ -4,7 +4,7 @@ Static supplementary video comparisons for DuoMatching, based on the September 2
 
 The comparison gallery shows two groups per row on screens wider than 1000 px, with one baseline video and one DuoMatching video in each group. Narrower screens show one group per row. Click either video to play or pause its pair.
 
-The page presents the teaser, idea animation, abstract, method overview, and video comparisons in that order. Teaser and method figures have responsive WebP previews at 1400 and 2800 px wide; click either figure to open its original PDF in `assets/figures/`. The 1080p idea animation in `assets/videos/` uses native playback controls and appears immediately before the abstract.
+The page presents the teaser, abstract, interactive method overview, and video comparisons in that order. Teaser and method figures have responsive WebP previews at 1400 and 2800 px wide, with original PDFs in `assets/figures/`. Clicking the Method figure expands the left panel to fill the figure and starts the 1080p idea animation in `assets/videos/`. Use the back button or Escape to return to the method overview; the PDF link remains available. Expansion respects reduced-motion preferences.
 
 ## Local preview
 
