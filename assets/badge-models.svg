@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="28" viewBox="0 0 180 28" role="img" aria-label="Hugging Face: Models">
+  <clipPath id="round"><rect width="180" height="28" rx="4"/></clipPath>
+  <g clip-path="url(#round)"><path fill="#555" d="M0 0h112v28H0z"/><path fill="#c69017" d="M112 0h68v28H112z"/></g>
+  <g font-family="Verdana, Arial, sans-serif" font-size="14" text-anchor="middle"><text x="56.0" y="19" fill="white">Hugging Face</text><text x="146.0" y="19" fill="white">Models</text></g>
+</svg>

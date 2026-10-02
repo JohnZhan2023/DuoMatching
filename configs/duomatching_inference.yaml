@@ -1,0 +1,10 @@
+# DuoMatching inference settings.
+denoising_step_list: [1000, 500]
+denoising_step_list_first_chunk: [1000, 750, 500, 250]
+warp_denoising_step: true
+num_frame_per_block: 1
+independent_first_frame: false
+height: 480
+width: 832
+model_kwargs:
+  timestep_shift: 5.0

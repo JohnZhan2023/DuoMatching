@@ -1,0 +1,38 @@
+data:
+  cache_dir: data/latent_bridge/cache_480p_train
+  validation_cache_dir: data/latent_bridge/cache_480p_validation
+  expand_frame_offsets: true
+  num_workers: 4
+
+adapter:
+  latent_channels: 16
+  hidden_channels: 256
+  num_res_blocks: 8
+  frame_embed_dim: 256
+  num_frame_offsets: 4
+  groups: 32
+  residual_output: true
+
+loss:
+  l1_weight: 1.0
+  cosine_weight: 0.1
+  gradient_weight: 0.1
+
+training:
+  output_dir: outputs/latent_bridge/frame_latent_adapter_480p_30k
+  batch_size: 8
+  validation_batch_size: 8
+  gradient_accumulation_steps: 1
+  mixed_precision: fp16
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.01
+  warmup_steps: 1000
+  max_steps: 100000
+  max_grad_norm: 1.0
+  log_every: 20
+  validate_every: 1000
+  save_every: 5000
+  seed: 0
+  wandb: false
+  wandb_project: latent-bridge

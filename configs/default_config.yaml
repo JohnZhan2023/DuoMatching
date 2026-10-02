@@ -1,0 +1,76 @@
+independent_first_frame: false
+warp_denoising_step: false
+weight_decay: 0.01
+same_step_across_blocks: true
+discriminator_lr_multiplier: 1.0
+last_step_only: false
+i2v: false
+num_training_frames: 21
+gc_interval: 100
+context_noise: 0
+causal: true
+
+ckpt_step: 0
+prompt_name: MovieGenVideoBench
+prompt_path: prompts/demos.txt
+eval_first_n: 64
+num_samples: 1
+height: 480
+width: 832
+num_frames: 81
+
+# Training loop controls.
+gradient_accumulation_steps: 1
+max_train_steps: 1200
+
+# Opt-in diagnostics for checking whether later-frame loss backpropagates
+# through the self-forcing KV cache. Breakpoints use Python's breakpoint().
+debug_kv_cache_grad: false
+debug_kv_cache_breakpoints: false
+debug_kv_cache_exit_after_backward: false
+
+# Optional log-step inference hook. When enabled, each distributed rank runs a
+# shard of prompts and saves all videos under <logdir>/log_inference.
+log_inference: false
+log_inference_prompt_path: prompts/demos.txt
+log_inference_num_output_frames: 21
+log_inference_fps: 16
+log_inference_wandb_max_videos: 3
+
+qwen_image_teacher:
+  enabled: false
+  model_path: ${oc.env:DUOMATCHING_QWEN_ROOT,models/Qwen-Image}
+  fsdp_wrap_strategy: size
+  cpu_offload: false
+  # Optional dedicated 1.3B fake critic for the adapter/image-latent marginal.
+  # It is trained on F=1 sampled latents with the same schedule as Qwen DMD;
+  # the original fake critic remains responsible for native full-video DMD.
+  train_fake_critic: false
+  fake_model_name: Wan2.1-T2V-1.3B
+  fake_critic_fsdp_wrap_strategy: size
+  fake_critic_cpu_offload: false
+  fake_critic_lr: 4.0e-07
+  fake_critic_loss_weight: 1.0
+  frames_per_video: 1
+  # false: exclude frame 0; true: always anchor frame 0; random: make frame 0
+  # an ordinary random candidate without forcing it into every sampled set.
+  include_first_frame: false
+  # Latent Variation Sampling randomly selects one frame from each temporal
+  # segment separated by strong adjacent-latent transitions.
+  frame_sampling: transition_segments
+  frame_difference_metric: mean_abs
+  latent_adapter: direct
+  loss_weight: 0.1
+  warmup_steps: 200
+  guidance_scale: 3.0
+  # Qwen's unconditional text should be independent from Wan's video negative
+  # prompt. A single space is the official Qwen-Image no-negative default.
+  negative_prompt: " "
+  # Sample raw timesteps, then map them to effective sigma with the scheduler
+  # shipped by Qwen-Image. Use wan_shift only to reproduce legacy experiments.
+  timestep_sampling: random
+  timestep_schedule: qwen_dynamic
+  scheduler_reference_steps: 50
+  # Paper tau_CA > t; converted internally to Wan's reversed timestep axis.
+  decoupled_dmd_for_qwen: false
+  max_sequence_length: 512

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "duomatching"
+version = "0.1.0"
+description = "Joint-Marginal Distribution Matching for Few-Step Video Generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["model*", "pipeline*", "trainer*", "utils*", "wan*", "demo_utils*", "latent_bridge*"]

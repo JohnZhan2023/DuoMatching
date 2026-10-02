@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="28" viewBox="0 0 130 28" role="img" aria-label="arXiv">
+  <clipPath id="round"><rect width="130" height="28" rx="4"/></clipPath>
+  <g clip-path="url(#round)"><path fill="#555" d="M0 0h58v28H0z"/><path fill="#d94a50" d="M58 0h72v28H58z"/></g>
+  <g font-family="Verdana, Arial, sans-serif" font-size="14" text-anchor="middle"><text x="29.0" y="19" fill="white">arXiv</text></g>
+</svg>

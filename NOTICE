@@ -1,0 +1,20 @@
+DuoMatching
+Joint–Marginal Distribution Matching for Few-Step Video Generation
+https://johnzhan2023.github.io/DuoMatching/
+
+The video runtime and training implementation derive from Causal Forcing
+(https://github.com/thu-ml/Causal-Forcing), including its Self Forcing foundations.
+This release was prepared from the local Causal-Forcing adapter branch,
+commit ebede21, with portable paths, packaging, strict checkpoint loading,
+and LatentBridge integration added for the DuoMatching release.
+
+LatentBridge source is included as latent_bridge/ with its preprocessing and
+training entry points under scripts/latent_bridge/.
+
+wan/ retains the Wan Team copyright notices. Wan's CLIP implementation identifies
+its OpenAI CLIP and OpenCLIP origins in the source. Existing attribution is
+retained. demo_utils/memory.py derives from lllyasviel/FramePack under Apache-2.0. The repository's Apache-2.0 LICENSE is carried forward.
+
+Upstream weights are downloaded separately, and their licenses remain applicable.
+No datasets, private services, experiment logs or third-party model weights are
+bundled in the code repository.

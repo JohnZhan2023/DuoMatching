@@ -1,0 +1,19 @@
+data:
+  # JSONL: one {"video": "/absolute/path/video.mp4", "id": "optional-id"} per line.
+  manifest: outputs/latent_bridge/train_videos.jsonl
+  height: 480
+  width: 832
+  chunks_per_clip: 4
+  clips_per_video: 1
+  seed: 0
+
+models:
+  causal_forcing_repo: .
+  wan_vae: wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+  target_type: qwen
+  target_model: models/Qwen-Image
+
+cache:
+  output_dir: data/latent_bridge/cache_480p_train
+  target_batch_size: 4
+  storage_dtype: float16
