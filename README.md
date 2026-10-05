@@ -6,8 +6,7 @@
 
 <p align="center">
   <a href="https://johnzhan2023.github.io/DuoMatching/"><img src="assets/badge-website.svg" alt="Website: DuoMatching"></a>
-  <!-- arXiv: add the paper identifier and link when available. -->
-  <img src="assets/badge-arxiv.svg" alt="arXiv">
+  <a href="https://arxiv.org/abs/2610.03543"><img src="assets/badge-arxiv.svg" alt="arXiv: 2610.03543"></a>
   <a href="https://huggingface.co/JohnZhan/DuoMatching"><img src="assets/badge-models.svg" alt="Hugging Face: Models"></a>
 </p>
 
